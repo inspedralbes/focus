@@ -1,0 +1,61 @@
+schema: spec-driven
+
+# Project context (optional)
+# Add only constraints that should guide OpenSpec artifacts and workflows.
+# Include constraints an agent cannot infer by reading the code.
+# Keep general project documentation and discoverable codebase facts out.
+# Example:
+#   context: |
+#     Designs and tasks must cover Windows, macOS, and Linux
+#     Write all artifacts in Spanish
+
+# Per-artifact rules (optional)
+# Add custom rules for specific artifacts.
+# Example:
+#   rules:
+#     proposal:
+#       - Keep proposals under 500 words
+#       - Always state what is out of scope
+#     tasks:
+#       - Break tasks into chunks of max 2 hours
+
+# Per-operation guidance (optional)
+# Add advisory guidance for how apply and archive work should be conducted.
+# This is separate from artifact rules above.
+# Example:
+#   operations:
+#     apply:
+#       guidance:
+#         - Keep test summaries concise
+#     archive:
+#       guidance:
+#         - Summarize the archive outcome before finishing
+
+
+rules:
+  proposal:
+    - Explicita objectius, abast, exclusions i criteris d'acceptació.
+    - No presentis funcionalitats futures com a part del canvi actual.
+  specs:
+    - Escriu requisits verificables i escenaris WHEN/THEN.
+    - Descriu el comportament observable, no detalls interns innecessaris.
+  design:
+    - Respecta les decisions arquitectòniques del context.
+    - Justifica desviacions i identifica decisions pendents.
+  tasks:
+    - Divideix la feina en tasques petites, ordenades i verificables.
+    - Associa cada tasca amb tests o comprovacions.
+    - No marquis una tasca com a completada sense executar-ne la verificació.
+
+operations:
+  apply:
+    guidance:
+      - Llegeix tots els artefactes abans de modificar codi.
+      - Implementa només requisits aprovats i mantén els tests alineats amb les especificacions.
+      - Executa els tests després de cada bloc funcional.
+      - No implementis accions destructives sobre el sistema operatiu en el primer canvi.
+      - Si detectes contradiccions o decisions no especificades, atura't i proposa actualitzar els artefactes.
+  archive:
+    guidance:
+      - Abans d'arxivar, comprova que totes les tasques estan completades i els tests passen.
+      - Documenta desviacions, limitacions conegudes i requisits ajornats.
